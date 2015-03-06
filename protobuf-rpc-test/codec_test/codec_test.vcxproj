@@ -34,9 +34,17 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\global-predef.props" />
+    <Import Project="..\global-protobuf-incl.props" />
+    <Import Project="..\share-src-incl.props" />
+    <Import Project="..\lib-protobuf-x86-debug.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\global-predef.props" />
+    <Import Project="..\global-protobuf-incl.props" />
+    <Import Project="..\share-src-incl.props" />
+    <Import Project="..\lib-protobuf-x86-release.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -79,15 +87,25 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\share-src\proto\adler32.hpp" />
+    <ClInclude Include="..\share-src\proto\check_arch.hpp" />
+    <ClInclude Include="..\share-src\proto\echo.pb.h" />
+    <ClInclude Include="..\share-src\proto\endianess.hpp" />
+    <ClInclude Include="..\share-src\proto\msg_codec.hpp" />
+    <ClInclude Include="..\share-src\proto\zlib_adler32.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\share-src\proto\echo.pb.cc" />
     <ClCompile Include="codec_test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\share-src\proto\echo.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
